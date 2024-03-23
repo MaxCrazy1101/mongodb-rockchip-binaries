@@ -141,15 +141,19 @@ jobs:
           
       - name:  Minimize size and Generate release
         run: |
-          mkdir release/
+          mkdir mongo/release/
           pushd mongo/aarch64_gcc_s/bin
-          aarch64-linux-gnu-strip mongod -o ../../../release/mongod
-          aarch64-linux-gnu-strip mongos -o ../../../release/mongos
+          mv mongod mongod.debug
+          mv mongos mongos.debug
+          aarch64-linux-gnu-strip mongod.debug -o mongod
+          aarch64-linux-gnu-strip mongos.debug -o mongos
+          mv mongod ../../release/mongod
+          mv mongos ../../release/mongos
           cd ../../
-          cp ./LICENSE-Community.txt ../release/LICENSE-Community.txt
-          cp ./README.md ../release/README.md
-          cd ../release
-          tar --group root --owner root -czvf ../${{ env.OUTPUT_NAME }}.tar.gz LICENSE-Community.txt README.md mongo{d,s}
+          cp ./LICENSE-Community.txt ./release/LICENSE-Community.txt
+          cp ./README.md ./release/README.md
+          cd ./release
+          tar --group root --owner root -czvf ../../${{ env.OUTPUT_NAME }}.tar.gz LICENSE-Community.txt README.md mongo{d,s}
 
 
       - name: Save bundle artifact
