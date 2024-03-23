@@ -16,7 +16,7 @@ on:
       source_tag:
         description: "the source tag"
         required: false
-        default: "r7.0.6"
+        default: "r7.0.7"
         type: string
       build_components:
         description: "SCons Targets"
@@ -138,7 +138,7 @@ jobs:
           \time --verbose python3 buildscripts/scons.py -j$(grep -c processor /proc/cpuinfo) AR=/usr/bin/aarch64-linux-gnu-ar CC=/usr/bin/aarch64-linux-gnu-gcc-${{ inputs.gcc_compiler_version }} CXX=/usr/bin/aarch64-linux-gnu-g++-${{ inputs.gcc_compiler_version }} CCFLAGS="${{ matrix.platform.cc_flags }}" --dbg=off --opt=on --link-model=static --disable-warnings-as-errors --ninja generate-ninja NINJA_PREFIX=aarch64_gcc_s VARIANT_DIR=aarch64_gcc_s DESTDIR=aarch64_gcc_s --linker=gold
           \time --verbose ninja -f aarch64_gcc_s.ninja -j3 ${{inputs.build_components}} # For MongoDB 6.x+
           echo "status=success" >> ${GITHUB_OUTPUT}
-          
+
       - name:  Minimize size and Generate release
         run: |
           mkdir mongo/release/
@@ -153,7 +153,7 @@ jobs:
           cp ./LICENSE-Community.txt ./release/LICENSE-Community.txt
           cp ./README.md ./release/README.md
           cd ./release
-          tar --group root --owner root -czvf ../../${{ env.OUTPUT_NAME }}.tar.gz LICENSE-Community.txt README.md mongo{d,s}
+          tar --group root --owner root -czvf ../${{ env.OUTPUT_NAME }}.tar.gz LICENSE-Community.txt README.md mongo{d,s}
 
 
       - name: Save bundle artifact
@@ -163,7 +163,7 @@ jobs:
           name: ${{ env.OUTPUT_NAME }}
           # Waiting fix for https://github.com/actions/upload-artifact/issues/39 to upload zip file
           # Upload unpacked files for now
-          path: ./
+          path: mongo/release
           if-no-files-found: error
           retention-days: 30
 
@@ -172,7 +172,7 @@ jobs:
         if: ${{ inputs.binaries_storage }} == 'save' && !cancelled()
         with:
           tag: ${{ matrix.platform.release_for }}_gcc${{ inputs.gcc_compiler_version }}
-          artifacts: ./${{env.OUTPUT_NAME}}.tar.gz
+          artifacts: mongo/${{env.OUTPUT_NAME}}.tar.gz
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true

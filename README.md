@@ -5,10 +5,6 @@ Fork From https://github.com/themattman/mongodb-raspberrypi-binaries
 
 These are a best-effort attempt to create binaries of the MongoDB Community Edition Server for the RK3399 ecosystem. MongoDB Inc does not officially support these binaries.
 
-## Motivation
-
-[Time-Series Collections](https://www.mongodb.com/docs/v6.0/core/timeseries-collections/) are a relatively new MongoDB feature that provide a meaningful improvement for common embedded workloads, like sensor aggregation on a Raspberry Pi. Prior to this repo, users were required to build from source.
-
 ## Docker Support?
 
 The binaries from this repo are packaged in a Docker container [here](https://github.com/themattman/mongodb-raspberrypi-docker).
@@ -22,33 +18,6 @@ These binaries are subject to the [MongoDB Server-Side Public License](https://g
 
 ## Releases
 
-- [_r7.0.5_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.5-rpi-unofficial) [January 06, 2024]
-
-- [_r6.0.12_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.12-rpi-unofficial) [January 03, 2024]
-
-- [_r7.0.4_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.4-rpi-unofficial) [December 10, 2023]
-
-- [_r7.0.3_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.3-rpi-unofficial) [November 11, 2023]
-
-- [_r7.0.2_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.2-rpi-unofficial) [October 27, 2023]
-
-- [_r6.0.11_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.11-rpi-unofficial) [October 25, 2023]
-
-- [_r6.0.10_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.10-rpi-unofficial) [September 21, 2023]
-
-- [_r7.0.1_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.1-rpi-unofficial) [September 18, 2023]
-
-- [_r7.0.0_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r7.0.0-rpi-unofficial) [September 18, 2023]
-
-- [_r6.0.8_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.8-rpi-unofficial) [August 24, 2023]
-
-- [_r6.0.7_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.7-rpi-unofficial) [July 10, 2023]
-
-- [_r6.0.5_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.0.5-rpi-unofficial) [April 10, 2023]
-
-- [_r6.2.0_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.2.0-rpi-unofficial) [January 12, 2023]
-
-- [_r6.1.0-rc4_](https://github.com/themattman/mongodb-raspberrypi-binaries/releases/tag/r6.1.0-rc4-rpi-unofficial) [October 3, 2022]
 
 ## Installing on Raspberry Pi
 
