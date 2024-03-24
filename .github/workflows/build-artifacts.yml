@@ -59,6 +59,8 @@ jobs:
             cc_flags: -march=armv8-a+crc -moutline-atomics -mtune=cortex-a72.cortex-a53 -Warray-bounds -Winterference-size
 
     runs-on: ${{ matrix.platform.os }}
+    permissions: 
+      contents: write
     env:
       OUTPUT_NAME: mongodb.ce.${{ matrix.platform.release_for }}.${{ inputs.source_tag }}
     steps:
@@ -176,7 +178,6 @@ jobs:
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
-          token: ${{ secrets.GITHUB_TOKEN }}
           body: |
             ### MongoDB Unofficial Build
             - ${{ matrix.platform.release_for }}
